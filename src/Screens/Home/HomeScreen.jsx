@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 // import Axios from "axios";
 import { courseService } from "../../Services";
 import { createAction } from "../../Redux/Actions";
+import { FETCH_COURSES } from "../../Redux/Actions/type";
 
 class HomeScreen extends Component {
     render() {
@@ -29,7 +30,7 @@ class HomeScreen extends Component {
             .fetchCourses()
             // promise
             .then((res) => {
-                this.props.dispatch(createAction("FETCH_COURSE", res.data));
+                this.props.dispatch(createAction(FETCH_COURSES, res.data));
             })
             .catch((err) => {
                 console.log(err);

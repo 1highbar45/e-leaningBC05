@@ -1,4 +1,5 @@
 // action creator
-export const createAction =(type,payload)=>({
-    
-})
+export const createAction = (type, payload) => ({
+    type,
+    payload,
+});
