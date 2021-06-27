@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { connect } from "react-redux";
+import { courseService } from "../../Services";
+import { createAction } from "../../Redux/Actions";
 
 class CourseDetailScreen extends Component {
     render() {
@@ -13,12 +15,12 @@ class CourseDetailScreen extends Component {
     }
 
     componentDidMount() {
-        Axios({
-            method: "GET",
-            url: "https://elearning0706.cybersoft.edu.vn/api/QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc=angular",
-        })
+        courseService
+            .fetchCourseDetail()
             .then((res) => {
-                this.props.dispatch();
+                this.props.dispatch(
+                    createAction("FETCH_COURSE_DETAIL", res.data)
+                );
             })
             .catch((err) => {
                 console.log(err);
