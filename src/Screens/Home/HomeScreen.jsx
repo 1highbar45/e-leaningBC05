@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import CourseItem from "../../Components/CourseItems/CourseItem";
 import { connect } from "react-redux";
+import { fetchCourses } from "../../Redux/Actions/course";
 // import Axios from "axios";
-import { courseService } from "../../Services";
-import { createAction } from "../../Redux/Actions";
-import { FETCH_COURSES } from "../../Redux/Actions/type";
 
 class HomeScreen extends Component {
     render() {
@@ -26,15 +24,7 @@ class HomeScreen extends Component {
 
     componentDidMount() {
         // axios return promise ES6
-        courseService
-            .fetchCourses()
-            // promise
-            .then((res) => {
-                this.props.dispatch(createAction(FETCH_COURSES, res.data));
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        this.props.dispatch(fetchCourses());
     }
 }
 

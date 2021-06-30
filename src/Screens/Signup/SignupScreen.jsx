@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Formik, Form, Field, FormikProps } from "formik";
+import { Form, Formik, Field } from "formik";
 
 class SignupScreen extends Component {
     _handleSubmit = (values) => {
@@ -19,7 +19,6 @@ class SignupScreen extends Component {
                         maNhom: "",
                     }}
                     onSubmit={this._handleSubmit}
-                
                     render={(FormikProps) => {
                         <Form action="">
                             <div className="form-group">
@@ -94,11 +93,12 @@ class SignupScreen extends Component {
                             </div>
                         </Form>;
                     }}
-                    />
+                />
                 {/* </Formik> */}
             </div>
         );
     }
 }
+
 
 export default SignupScreen;
