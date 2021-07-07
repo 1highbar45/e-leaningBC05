@@ -1,9 +1,15 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Logo from "../../Assets/Images/logo.png";
 import classes from "./style.module.css";
+import { connect } from "react-redux";
 
 class Header extends Component {
+    handleLogOut = () => {
+        // this.props.setCurrentUser({});
+        localStorage.clear();
+        // notify("success", "Sign Out Successful");
+    };
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-warning mb-4">
@@ -38,26 +44,48 @@ class Header extends Component {
                         </li>
                     </ul>
                     <ul className="navbar-nav ">
-                        <li className="nav-item">
-                            <NavLink
-                                activeStyle={{ color: "red" }}
-                                className="nav-link"
-                                exact
-                                to="/signup"
-                            >
-                                Sign Up
-                            </NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink
-                                activeStyle={{ color: "red" }}
-                                className="nav-link"
-                                exact
-                                to="/signin"
-                            >
-                                Sign In
-                            </NavLink>
-                        </li>
+                        {this.props.credentials ? (
+                            <>
+                                <li className="nav-item">
+                                    <span className="nav-link">
+                                        Hi, {this.props.credentials.hoTen}
+                                    </span>
+                                </li>
+                                <li className="nav-item">
+                                    <Link
+                                        activeStyle={{ color: "red" }}
+                                        className="nav-link"
+                                        exact
+                                        onClick={this.handleLogOut}
+                                    >
+                                        Sign Out
+                                    </Link>
+                                </li>
+                            </>
+                        ) : (
+                            <>
+                                <li className="nav-item">
+                                    <NavLink
+                                        activeStyle={{ color: "red" }}
+                                        className="nav-link"
+                                        exact
+                                        to="/signup"
+                                    >
+                                        Sign Up
+                                    </NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink
+                                        activeStyle={{ color: "red" }}
+                                        className="nav-link"
+                                        exact
+                                        to="/signin"
+                                    >
+                                        Sign In
+                                    </NavLink>
+                                </li>
+                            </>
+                        )}
                     </ul>
                 </div>
             </nav>
@@ -65,4 +93,10 @@ class Header extends Component {
     }
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+    return {
+        credentials: state.user.credentials,
+    };
+};
+
+export default connect(mapStateToProps)(Header);

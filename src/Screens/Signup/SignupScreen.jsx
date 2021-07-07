@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import { userService } from "../../Services";
-import { signupUserSchema } from "../../Services/user";
+import { signupUserSchema } from "../../Services/user-service";
 
 class SignupScreen extends Component {
     _handleSubmit = (values) => {
@@ -27,7 +27,8 @@ class SignupScreen extends Component {
                 }}
                 validationSchema={signupUserSchema}
                 onSubmit={this._handleSubmit}
-                render={(formikProps) => (
+            >
+                {(props) => (
                     <Form className="w-50 mx-auto">
                         <h1>Sign Up</h1>
                         <div className="form-group">
@@ -35,7 +36,7 @@ class SignupScreen extends Component {
                             <Field
                                 type="text"
                                 name="taiKhoan"
-                                onChange={formikProps.handleChange}
+                                onChange={props.handleChange}
                                 className="form-control"
                             />
                             <ErrorMessage name="taiKhoan">
@@ -51,7 +52,7 @@ class SignupScreen extends Component {
                             <Field
                                 type="password"
                                 name="matKhau"
-                                onChange={formikProps.handleChange}
+                                onChange={props.handleChange}
                                 className="form-control"
                             />
                             <ErrorMessage name="matKhau" />
@@ -61,7 +62,7 @@ class SignupScreen extends Component {
                             <Field
                                 type="text"
                                 name="hoTen"
-                                onChange={formikProps.handleChange}
+                                onChange={props.handleChange}
                                 className="form-control"
                             />
                             <ErrorMessage name="hoTen" />
@@ -71,7 +72,7 @@ class SignupScreen extends Component {
                             <Field
                                 type="email"
                                 name="email"
-                                onChange={formikProps.handleChange}
+                                onChange={props.handleChange}
                                 className="form-control"
                             />
                             <ErrorMessage name="email" />
@@ -81,7 +82,7 @@ class SignupScreen extends Component {
                             <Field
                                 type="text"
                                 name="soDT"
-                                onChange={formikProps.handleChange}
+                                onChange={props.handleChange}
                                 className="form-control"
                             />
                             <ErrorMessage name="soDT" />
@@ -92,7 +93,7 @@ class SignupScreen extends Component {
                                 component="select"
                                 className="form-control"
                                 name="maNhom"
-                                onChange={formikProps.handleChange}
+                                onChange={props.handleChange}
                             >
                                 <option>GP01</option>
                                 <option>GP02</option>
@@ -110,7 +111,7 @@ class SignupScreen extends Component {
                         <button className="btn btn-success">Đăng ký</button>
                     </Form>
                 )}
-            />
+            </Formik>
         );
     }
 }

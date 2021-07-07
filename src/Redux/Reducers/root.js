@@ -1,10 +1,12 @@
 import { combineReducers } from "redux";
-import CourseReducer from "./course";
-import UserReducer from "./user";
+import { CommonReducer } from "./common-reducer";
+import CourseReducer from "./course-reducer";
+import UserReducer from "./user-reducer";
 
 const RootReducer = combineReducers({
     course: CourseReducer,
     user: UserReducer,
+    common: CommonReducer,
 });
 
 export default RootReducer;

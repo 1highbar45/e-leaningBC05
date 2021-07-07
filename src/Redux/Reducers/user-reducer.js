@@ -1,4 +1,4 @@
-import { FETCH_CREDENTIALS } from "../Actions/type";
+import { FETCH_CREDENTIALS } from "../Actions/const";
 
 let initialState = {
     credentials: null, // thông tin đăng nhập ban đầu bằng null

@@ -1,3 +1,5 @@
+import { FETCH_COURSES, FETCH_COURSE_DETAIL } from "../Actions/const";
+
 let initialState = {
     courses: [],
     courseDetail: null,
@@ -5,10 +7,10 @@ let initialState = {
 
 const CourseReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "FETCH_COURSES":
+        case FETCH_COURSES:
             state.courses = action.payload;
             return { ...state };
-        case "FETCH_COURSE_DETAIL":
+        case FETCH_COURSE_DETAIL:
             state.courseDetail = action.payload;
             return { ...state };
         default:

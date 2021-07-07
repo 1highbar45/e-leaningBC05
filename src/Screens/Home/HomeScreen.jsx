@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CourseItem from "../../Components/CourseItems/CourseItem";
 import { connect } from "react-redux";
-import { fetchCourses } from "../../Redux/Actions/course";
+import { fetchCourses } from "../../Redux/Actions/course-action";
 // import Axios from "axios";
 
 class HomeScreen extends Component {
@@ -13,7 +13,7 @@ class HomeScreen extends Component {
                     <div className="row">
                         {this.props.courseList.map((item, index) => (
                             <div className="col-3">
-                                <CourseItem item={item} />
+                                <CourseItem item={item}  />
                             </div>
                         ))}
                     </div>

@@ -1,6 +1,7 @@
 import { createAction } from ".";
 import { courseService } from "../../Services";
-import { FETCH_COURSES, FETCH_COURSE_DETAIL } from "./type";
+import { startLoadingAction, stopLoadingAction } from "./common-action";
+import { FETCH_COURSES, FETCH_COURSE_DETAIL } from "./const";
 
 // async actions
 export const fetchCourses = () => {
@@ -19,12 +20,15 @@ export const fetchCourses = () => {
 
 export const fetchDetailCourse = (id) => {
     return (dispatch) => {
+        dispatch(startLoadingAction());
         courseService
             .fetchCourseDetail(id)
             .then((res) => {
                 dispatch(createAction(FETCH_COURSE_DETAIL, res.data));
+                dispatch(stopLoadingAction());
             })
             .catch((err) => {
+                dispatch(stopLoadingAction());
                 console.log(err);
             });
     };

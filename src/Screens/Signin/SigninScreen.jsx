@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Formik, Field } from "formik";
 import { connect } from "react-redux";
-import { login } from "../../Redux/Actions/user";
+import { login } from "../../Redux/Actions/user-action";
 
 class SigninScreen extends Component {
     render() {
@@ -11,7 +11,8 @@ class SigninScreen extends Component {
                 onSubmit={(values) => {
                     this.props.dispatch(login(values));
                 }}
-                render={({ handleChange }) => (
+            >
+                {({ handleChange }) => (
                     <Form className="w-50 mx-auto">
                         <h1>Sign In</h1>
                         <div className="form-group">
@@ -35,12 +36,12 @@ class SigninScreen extends Component {
                         <button className="btn btn-success">Đăng nhập</button>
                     </Form>
                 )}
-            />
+            </Formik>
         );
     }
 }
 
 export default connect()(SigninScreen);
 
-// dpnguyen/1232132131 hv
-// admin_test/123456789 gv
+// // dpnguyen/1232132131 hv
+// // admin_test/123456789 gv

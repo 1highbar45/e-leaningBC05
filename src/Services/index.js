@@ -1,5 +1,5 @@
-import CourseService from "./course";
-import UserService from "./user";
+import CourseService from "./course-service";
+import UserService from "./user-service";
 
 export const courseService = new CourseService();
 
