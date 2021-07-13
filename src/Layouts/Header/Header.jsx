@@ -12,10 +12,11 @@ class Header extends Component {
         // chuyển sang trang Home
         window.location.reload("/");
     };
+    
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-warning mb-4">
-                <a className="navbar-brand" href="#">
+                <a className="navbar-brand">
                     <img src={Logo} alt="" className={classes.logo} />
                 </a>
                 <button

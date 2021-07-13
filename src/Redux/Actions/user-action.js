@@ -11,7 +11,7 @@ export const login = (user) => {
                 dispatch(createAction(FETCH_CREDENTIALS, res.data));
                 localStorage.setItem("user", JSON.stringify(res.data));
                 // trở lại trang trước đó
-                window.history.go(-1);
+                // window.history.go(-1);
             })
             .catch((err) => {
                 console.log(err);

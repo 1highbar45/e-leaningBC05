@@ -33,7 +33,9 @@ class SigninScreen extends Component {
                                 className="form-control"
                             />
                         </div>
-                        <button className="btn btn-success">Đăng nhập</button>
+                        <button type="submit" className="btn btn-success">
+                            Đăng nhập
+                        </button>
                     </Form>
                 )}
             </Formik>

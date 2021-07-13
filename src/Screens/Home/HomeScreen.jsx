@@ -9,7 +9,7 @@ class HomeScreen extends Component {
         const { courseList } = this.props;
         return courseList.map((item, index) => (
             <div className="col-3">
-                <CourseItem item={item} />
+                <CourseItem item={item} key={index} />
             </div>
         ));
     };
