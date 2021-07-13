@@ -5,10 +5,12 @@ import classes from "./style.module.css";
 import { connect } from "react-redux";
 
 class Header extends Component {
+    // Đăng xuất
     handleLogOut = () => {
-        // this.props.setCurrentUser({});
+        // xóa user trong localStorage
         localStorage.clear();
-        // notify("success", "Sign Out Successful");
+        // chuyển sang trang Home
+        window.location.reload("/");
     };
     render() {
         return (

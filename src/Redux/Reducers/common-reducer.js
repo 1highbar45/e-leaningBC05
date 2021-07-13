@@ -12,7 +12,7 @@ export const CommonReducer = (state = initialState, { type, payload }) => {
         }
         case STOP_LOADING: {
             state.loading = false;
-            return { ...state };    
+            return { ...state };
         }
         default:
             return state;

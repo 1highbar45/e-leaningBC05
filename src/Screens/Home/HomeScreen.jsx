@@ -5,18 +5,21 @@ import { fetchCourses } from "../../Redux/Actions/course-action";
 // import Axios from "axios";
 
 class HomeScreen extends Component {
+    renderCourseList = () => {
+        const { courseList } = this.props;
+        return courseList.map((item, index) => (
+            <div className="col-3">
+                <CourseItem item={item} />
+            </div>
+        ));
+    };
+
     render() {
         return (
             <div>
                 <h1 className="display-4 text-center">Danh sach khoa hoc</h1>
                 <div className="container">
-                    <div className="row">
-                        {this.props.courseList.map((item, index) => (
-                            <div className="col-3">
-                                <CourseItem item={item}  />
-                            </div>
-                        ))}
-                    </div>
+                    <div className="row">{this.renderCourseList()}</div>
                 </div>
             </div>
         );
