@@ -36,10 +36,10 @@ class App extends Component {
     }
 
     _getUserFromLocal = () => {
-        const userStr = localStorage.getItem("user");
-        if (userStr) {
+        const credentialsStr = localStorage.getItem("credentials");
+        if (credentialsStr) {
             this.props.dispatch(
-                createAction(FETCH_CREDENTIALS, JSON.parse(userStr))
+                createAction(FETCH_CREDENTIALS, JSON.parse(credentialsStr))
             );
         }
     };

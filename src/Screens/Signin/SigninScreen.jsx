@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Formik, Field } from "formik";
 import { connect } from "react-redux";
 import { login } from "../../Redux/Actions/user-action";
+import "./Form.css";
 
 class SigninScreen extends Component {
     render() {
@@ -13,30 +14,46 @@ class SigninScreen extends Component {
                 }}
             >
                 {({ handleChange }) => (
-                    <Form className="w-50 mx-auto">
-                        <h1>Sign In</h1>
-                        <div className="form-group">
-                            <label>Tài khoản</label>
-                            <Field
-                                type="text"
-                                name="taiKhoan"
-                                onChange={handleChange}
-                                className="form-control"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label>Mật khẩu</label>
-                            <Field
-                                type="password"
-                                name="matKhau"
-                                onChange={handleChange}
-                                className="form-control"
-                            />
-                        </div>
-                        <button type="submit" className="btn btn-success">
-                            Đăng nhập
-                        </button>
-                    </Form>
+                    <div
+                        className="container-fluid"
+                        style={{
+                            backgroundColor: "#EEEEEE",
+                            display: "flex",
+                            justifyContent: "center",
+                        }}
+                    >
+                        <Form className="w-25 mx-auto bg-white p-5 m-5">
+                            <h1 className="text-center">Sign In</h1>
+                            <div className="group">
+                                <Field
+                                    type="text"
+                                    required
+                                    name="taiKhoan"
+                                    onChange={handleChange}
+                                />
+                                <span className="highlight" />
+                                <span className="bar" />
+                                <label>Account</label>
+                            </div>
+                            <div className="group">
+                                <Field
+                                    type="password"
+                                    required
+                                    name="matKhau"
+                                    onChange={handleChange}
+                                />
+                                <span className="highlight" />
+                                <span className="bar" />
+                                <label>Password</label>
+                            </div>
+                            <button
+                                type="submit"
+                                className="btn text-white bg-dark w-100 col-12"
+                            >
+                                Submit
+                            </button>
+                        </Form>
+                    </div>
                 )}
             </Formik>
         );

@@ -12,7 +12,7 @@ class Header extends Component {
         // chuyển sang trang Home
         window.location.reload("/");
     };
-    
+
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-warning mb-4">
