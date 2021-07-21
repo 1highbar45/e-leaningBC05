@@ -23,7 +23,7 @@ class SigninScreen extends Component {
                         }}
                     >
                         <Form className="w-25 mx-auto bg-white p-5 m-5">
-                            <h1 className="text-center">Sign In</h1>
+                            <h2 className="text-center">Sign In</h2>
                             <div className="group">
                                 <Field
                                     type="text"

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import styles from "./courseItem.module.css";
 
 class CourseItem extends Component {
     render() {
@@ -11,12 +12,15 @@ class CourseItem extends Component {
                     style={{ width: "100%", height: 200 }}
                     alt=""
                 />
-                <p className="lead font-weight-bold">{item.tenKhoaHoc}</p>
-                <p className="lead">{item.nguoiTao.hoTen}</p>
+                <div class={styles.course_name}>
+                    <h5>{item.tenKhoaHoc}</h5>
+                </div>
+                {/* <p className="lead font-weight-bold">{item.tenKhoaHoc}</p> */}
+                {/* <p className="lead">{item.nguoiTao.hoTen}</p> */}
                 <p className="lead">Rating: 5.0</p>
                 <Link
                     to={`/detail/${item.maKhoaHoc}`}
-                    className="btn btn-success"
+                    className="btn btn-primary"
                 >
                     Go To Detail
                 </Link>

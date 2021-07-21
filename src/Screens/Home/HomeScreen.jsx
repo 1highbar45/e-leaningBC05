@@ -8,7 +8,7 @@ class HomeScreen extends Component {
     renderCourseList = () => {
         const { courseList } = this.props;
         return courseList.map((item, index) => (
-            <div className="col-3">
+            <div className="col-md-3">
                 <CourseItem item={item} key={index} />
             </div>
         ));
@@ -18,7 +18,8 @@ class HomeScreen extends Component {
         return (
             <div>
                 <h1 className="display-4 text-center">Danh sach khoa hoc</h1>
-                <div className="container">
+
+                <div className="container mt-5 mb-5">
                     <div className="row">{this.renderCourseList()}</div>
                 </div>
             </div>

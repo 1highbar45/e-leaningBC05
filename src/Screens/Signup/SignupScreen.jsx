@@ -42,7 +42,7 @@ class SignupScreen extends Component {
                             className="mx-auto bg-white p-5 m-5"
                             style={{ width: "400px" }}
                         >
-                            <h1 className="text-center">Sign Up</h1>
+                            <h2 className="text-center">Sign Up</h2>
                             <div className="group">
                                 <Field
                                     type="text"

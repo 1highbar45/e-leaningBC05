@@ -6,7 +6,8 @@ import CircularIndeterminate from "../../Components/Loading/Loading";
 // import { createAction } from "../../Redux/Actions";
 // import { FETCH_COURSE_DETAIL } from "../../Redux/Actions/type";
 import { fetchDetailCourse } from "../../Redux/Actions/course-action";
-import "./CourseDetail.css";
+import style from "./detail.module.css";
+import Container from "@material-ui/core/Container";
 
 class CourseDetailScreen extends Component {
     render() {
@@ -15,53 +16,49 @@ class CourseDetailScreen extends Component {
             return <CircularIndeterminate />;
         }
         return (
-            // <div>
-            //     <img
-            //         src={courseDetail.hinhAnh}
-            //         alt=""
-            //         style={{ width: "50%", height: 500 }}
-            //     />
-            //     <h3>{courseDetail.tenKhoaHoc}</h3>
-            // </div>
-            <div className="container">
-                <h1>COMING SOON</h1>
-                <div className="row">
-                    <div
-                        className="
+            <div className={style.course}>
+                <Container width={1}>
+                    {/* <div className="container bg_img"> */}
+                    <div className="container">
+                        <div className="row">
+                            <div
+                                className="
                             col-xs-12 col-sm-12 col-md-6
                             d-flex
                             align-items-center
                         "
-                    >
-                        <div className="coming__detail">
-                            {/* <span>COMEDY, CRIME</span> */}
-                            <h2 className="display-4">{courseDetail.tenKhoaHoc}</h2>
-                            <p>
-                                <i className="fa fa-star" />
-                                <i className="fa fa-star" />
-                                <i className="fa fa-star" />
-                                <i className="fa fa-star" />
-                                <i className="fa fa-star" />
-                                <span className="coming__date">
-                                    <i className="fa fa-calendar-alt mr-2" />
-                                    30 September, 2017
-                                </span>
-                            </p>
-                            <p>{courseDetail.moTa}</p>
-                            <a href="#">MORE INFO &gt;</a>
+                            >
+                                <div className={style.course__detail}>
+                                    {/* <span>COMEDY, CRIME</span> */}
+                                    <h2 className="display-4">
+                                        {courseDetail.tenKhoaHoc}
+                                    </h2>
+                                    <p>
+                                        <i className="fa fa-star" />
+                                        <i className="fa fa-star" />
+                                        <i className="fa fa-star" />
+                                        <i className="fa fa-star" />
+                                        <i className="fa fa-star" />
+                                    </p>
+                                    <p>{courseDetail.moTa}</p>
+                                    <button className="btn btn-success">
+                                        Đăng ký khóa học
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="col-xs-12 col-sm-12 col-md-6">
+                                <div className={style.course__image}>
+                                    <img
+                                        style={{ objectFit: "fill" }}
+                                        src={courseDetail.hinhAnh}
+                                        alt
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="col-xs-12 col-sm-12 col-md-6">
-                        <div className="coming__trailer">
-                            <img
-                                style={{ objectFit: "fill" }}
-                                src={courseDetail.hinhAnh}
-                                alt
-                            />
-                            <i className="fa fa-play" />
-                        </div>
-                    </div>
-                </div>
+                    {/* </div> */}
+                </Container>
             </div>
         );
     }

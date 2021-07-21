@@ -1,0 +1,53 @@
+.course {
+    color: white;
+    padding: 80px 0;
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url(../../Assets/Images/Capture.PNG);
+    background-size: cover;
+    background-position: center;
+    background-color: black;
+    margin-top: 0;
+    overflow-x: hidden;
+}
+
+.course__detail span {
+    font-size: 14px;
+    color: #ec7532;
+}
+
+.course__detail h2 {
+    font-size: 34px;
+}
+
+.course__detail .fa-star {
+    font-size: 14px;
+    color: #fbbd61;
+}
+
+.coming__date {
+    opacity: 0.75;
+    font-size: 14px;
+    margin-left: 10px;
+    color: white !important;
+}
+
+.course__detail a {
+    color: #ec7532;
+    letter-spacing: 3px;
+    text-decoration: none;
+    transition: all 0.5s;
+}
+
+.course__detail a:hover {
+    color: #fbbd61;
+}
+
+.course__image {
+    position: relative;
+    border: 1px solid black;
+}
+
+.course__image img {
+    width: 100%;
+    height: auto;
+    object-fit: fill;
+}
